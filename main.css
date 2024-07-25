@@ -2,6 +2,63 @@ body {
   background-image: url('./background.png');
 }
 
+@keyframes header-glitch {
+  0% {
+    color: rgb(231, 0, 0);
+  }
+  10% {
+    color: rgb(231, 0, 0);
+  }
+  20% {
+    color: rgb(231, 0, 0);
+  }
+  30% {
+    color: rgb(231, 0, 0);
+  }
+  40% {
+    color: rgb(231, 0, 0);
+  }
+
+  50% {
+    color: rgb(231, 0, 0);
+  }
+  60% {
+    color: rgb(231, 0, 0);
+  }
+  70% {
+    color: rgb(231, 0, 0);
+  }
+  80% {
+    color: rgb(231, 0, 0);
+  }
+  80.1% {
+    color: rgb(0, 0, 0);
+  }
+  90% {
+    color: rgb(231, 0, 0);
+  }
+  94.8% {
+    color: rgb(0, 0, 0);
+  }
+  100% {
+    color: rgb(231, 0, 0);
+  }
+}
+
+#header-text {
+  font: 10em 'Pixelify Sans', sans-serif;
+  color: rgb(231, 0, 0);
+  text-align: center;
+  text-shadow: 5px 5px 2px rgb(0, 0, 0);
+  animation: header-glitch 0.5s;
+  background-color: rgb(252, 222, 237, 0.7);
+  width: 50%;
+  margin: 20vh auto 0;
+  border-radius: 40px;
+  border-bottom: 10px solid rgb(248, 0, 11, 0.2);
+  border-right: 10px solid rgb(248, 0, 11, 0.2);
+}
+
 #initial-text {
   color: blue;
   border: 1px solid red;
