@@ -1,5 +1,6 @@
 body {
   background-image: url('./background.png');
+  user-select: none;
 }
 
 @keyframes header-glitch {
@@ -57,7 +58,6 @@ body {
   border-radius: 40px;
   border-bottom: 10px solid rgb(248, 0, 11, 0.2);
   border-right: 10px solid rgb(248, 0, 11, 0.2);
-  user-select: none;
 }
 
 #initial-text {
@@ -65,7 +65,8 @@ body {
   border: 1px solid red;
 }
 
-#about-button {
+#about-button,
+#big-ass-start-button {
   font: 20px 'Pixelify Sans', sans-serif;
   border-style: none;
   margin: 8vh auto 0;
@@ -78,4 +79,26 @@ body {
   border-bottom: 2px solid rgb(248, 0, 11, 0.2);
   border-right: 2px solid rgb(248, 0, 11, 0.2);
   border-radius: 40px;
+}
+
+#about-button:hover {
+  box-shadow: 0px 0px 12px rgb(231, 0, 0);
+  background-color: rgb(252, 222, 237);
+  cursor: pointer;
+}
+
+#big-ass-start-button {
+  background-color: rgb(255, 92, 92, 0.9);
+  color: rgb(252, 222, 237);
+  line-height: 30px;
+  height: 80px;
+  margin-top: 30vh;
+  padding-top: 25px;
+  font-size: 50px;
+}
+
+#big-ass-start-button:hover {
+  background-color: rgb(255, 92, 92);
+  color: white;
+  border: 3px solid rgb(252, 222, 237);
 }
