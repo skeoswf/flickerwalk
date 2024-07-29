@@ -7,6 +7,7 @@ const aboutButtonTwo = document.getElementById('about-button-2');
 const fullScreen = document.getElementById('full-screen');
 
 const breath = new Audio('./breathe-slow.mp3');
+breath.volume = 0.2;
 const heart = new Audio('./heartbeat.mp3');
 
 startButton.addEventListener('click', () => {
@@ -45,7 +46,12 @@ document.addEventListener('click', (event) => {
   }
 });
 
-document.addEventListener('click', () => {
-  fullScreen.hidden = true;
-  app.hidden = false;
+document.addEventListener('click', (event) => {
+  if (event.target.id == 'full-screen') {
+    fullScreen.hidden = true;
+    app.hidden = false;
+    app.classList.add('fade-in');
+    document.body.style.backgroundColor = 'transparent';
+    document.body.style.backgroundImage = 'url(./background.png)';
+  }
 });
