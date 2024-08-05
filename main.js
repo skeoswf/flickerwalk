@@ -6,15 +6,17 @@ const aboutButton = document.getElementById('about-button');
 const aboutButtonTwo = document.getElementById('about-button-2');
 const fullScreen = document.getElementById('full-screen');
 
-const breath = new Audio('./breathe-slow.mp3');
+const theme = new Audio('./songs/cherryost.mp3');
+
+const breath = new Audio('./sounds/breathe-slow.mp3');
 breath.volume = 0.2;
-const heart = new Audio('./heartbeat.mp3');
+const heart = new Audio('./sounds/heartbeat.mp3');
 
 startButton.addEventListener('click', () => {
   header.remove();
   aboutButton.remove();
   startButton.remove();
-  document.body.style.backgroundImage = 'url(./background2.png)';
+  document.body.style.backgroundImage = 'url(./backgrounds/background2.png)';
   document.body.style.backgroundSize = 'cover';
   heart.play();
 });
@@ -39,7 +41,7 @@ document.addEventListener('click', (event) => {
     aboutButton.style.paddingRight = '240px';
     aboutButton.style.paddingTop = '50px';
     aboutButton.style.textShadow = '0px 0px 10px red';
-    document.body.style.backgroundImage = 'url(./background1.5.png)';
+    document.body.style.backgroundImage = 'url(./backgrounds/background1.5.png)';
     header.style.transform = 'rotate(180deg)';
     header.style.color = 'rgb(255, 255, 255)';
     breath.play();
@@ -48,10 +50,12 @@ document.addEventListener('click', (event) => {
 
 document.addEventListener('click', (event) => {
   if (event.target.id == 'full-screen') {
-    fullScreen.hidden = true;
+    fullScreen.remove();
+    theme.play();
     app.hidden = false;
     app.classList.add('fade-in');
+    document.body.classList.add('fade-in');
     document.body.style.backgroundColor = 'transparent';
-    document.body.style.backgroundImage = 'url(./background.png)';
+    document.body.style.backgroundImage = 'url(./backgrounds/background.png)';
   }
 });
