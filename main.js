@@ -5,6 +5,8 @@ const header = document.getElementById('header-text');
 const aboutButton = document.getElementById('about-button');
 const aboutButtonTwo = document.getElementById('about-button-2');
 const fullScreen = document.getElementById('full-screen');
+const secondIntroWrapper = document.getElementById('second-intro-wrapper');
+const secondIntroContinue = document.getElementById('second-intro-continue');
 
 const theme = new Audio('./songs/cherryost.mp3');
 
@@ -24,7 +26,7 @@ startButton.addEventListener('click', () => {
 document.addEventListener('click', (event) => {
   if (event.target.id === 'about-button') {
     const aboutButton = event.target;
-    aboutButton.innerHTML = 'a̶̢̙͈̳͓̯̪̜͌̅̎̐̎̍̾̓̓͜ͅb̷̺̜̖͕̦̰͈̙̉̉̀̎̋̂͂̾͐͠ȏ̵͚̰̪̀͒͒̿u̵̞̘͕̺͓̞͔̮͒̂t̶̳̫̟̣͔̲͈̾̄ͅ!̶̨̰̥̭̜́̎̌̕';
+    aboutButton.innerHTML = 't̴̢̀ṳ̵̓t̴͍̓o̶̒͜ř̷̪i̴̫̓á̴͕l̴̲̚';
     aboutButton.style.color = 'purple';
     aboutButton.style.paddingLeft = '90px';
     aboutButton.style.paddingTop = '40px';
@@ -35,7 +37,7 @@ document.addEventListener('click', (event) => {
     aboutButton.style.fontFamily = 'serif';
   } else if (event.target.id === 'about-button-2') {
     const aboutButtonTwo = event.target;
-    aboutButtonTwo.innerHTML = 'a̷̧̘͔͚̣̲̦͍̪̭̩̻̻̔̿̄̏͝b̷̨͔̱̻̭̘̫̪͗̉͘ŏ̸̢͙̺̘͈̋́ư̸̢͎̭͎̪̱̰̣͖̥̈͒̀ţ̴̢̪̣̹̩̳̦͔̟͕̹̜͛͛̃̓́̒̅̔̀̓̅̓̚!̷̜͍̬͔̗̊͆͠';
+    aboutButtonTwo.innerHTML = 't̸̛̤̦̭̫͚̟͊̉̓͂͋̿͠͝ụ̷͉̠̫̲̎̽̄̇͊͒̏͐̽t̷̰̦̹̤͔̜͖͓͋ọ̸̙̘̞̲̽̽͗̾̀͂͝r̷̡̜͕͓͔͕̹͕̀̊͂̍̚͠i̵̜̜̥̥̯̗̗͑̓̌̒͌̓̈́̐̀ͅâ̸̛̹͚̻̳̯̮̹̤̍̈́̚͝l̶͖̻̃́͒́';
     aboutButton.style.color = 'black';
     aboutButton.style.fontSize = '50px';
     aboutButton.style.paddingRight = '240px';
@@ -51,11 +53,15 @@ document.addEventListener('click', (event) => {
 document.addEventListener('click', (event) => {
   if (event.target.id == 'full-screen') {
     fullScreen.remove();
-    theme.play();
+    secondIntroWrapper.hidden = false;
+    secondIntroWrapper.classList.add('fade-in');
+    document.body.style.backgroundImage = 'url(./backgrounds/background.png)';
+  } else if (event.target.id == 'second-intro-continue') {
+    secondIntroWrapper.remove();
     app.hidden = false;
     app.classList.add('fade-in');
     document.body.classList.add('fade-in');
     document.body.style.backgroundColor = 'transparent';
-    document.body.style.backgroundImage = 'url(./backgrounds/background.png)';
+    theme.play();
   }
 });

@@ -98,7 +98,8 @@ body {
 }
 
 #about-button,
-#big-ass-start-button {
+#big-ass-start-button,
+#second-intro-continue {
   font: 20px 'Pixelify Sans', sans-serif;
   border-style: none;
   margin: 8vh auto 0;
@@ -129,7 +130,16 @@ body {
   font-size: 50px;
 }
 
-#big-ass-start-button:hover {
+#second-intro-continue {
+  background-color: rgb(255, 92, 92, 0.9);
+  color: rgb(252, 222, 237);
+  line-height: 30px;
+  height: 80px;
+  margin-top: 70vh;
+  padding-top: 25px;
+  font-size: 50px;
+}
+#big-ass-start-button:hover, #second-intro-continue:hover {
   background-color: rgb(255, 92, 92);
   color: white;
   border: 3px solid rgb(252, 222, 237);
@@ -157,7 +167,7 @@ body {
   cursor: pointer;
 }
 
-#full-screen {
+#full-screen, #second-intro {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -168,4 +178,16 @@ body {
   text-align: center;
   text-shadow: 10px 10px 3px rgb(255, 255, 255);
   animation: float 1s infinite alternate;
+}
+
+#second-intro {
+  font-size: 60px;
+  color: rgb(231, 0, 0);
+  text-shadow: 5px 5px 2px rgb(255, 255, 255);
+  background-color: rgb(252, 222, 237, 0.8);
+  width: 50%;
+  margin: 5vh auto 0;
+  border-radius: 40px;
+  border-bottom: 10px solid rgb(248, 0, 11, 0.2);
+  border-right: 10px solid rgb(248, 0, 11, 0.2);
 }
