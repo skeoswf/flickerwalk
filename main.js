@@ -7,33 +7,41 @@ let aboutButtonTwo = null; // we have to set it as a null here because it doesnt
 const fullScreen = document.getElementById('full-screen');
 const secondIntroWrapper = document.getElementById('second-intro-wrapper');
 const secondIntroContinue = document.getElementById('second-intro-continue');
+const gitHubLogo = document.getElementById('github-logo');
 
 const theme = new Audio('./songs/cherryost.mp3');
 const breath = new Audio('./sounds/breathe-slow.mp3');
 breath.volume = 0.2;
 const heart = new Audio('./sounds/heartbeat.mp3');
 
+let gameStage = 1;
 
 startButton.addEventListener('click', () => {
   header.remove();
   aboutButton.remove();
   startButton.remove();
+  gitHubLogo.remove();
   document.body.style.backgroundImage = 'url(./backgrounds/background2.png)';
   document.body.style.backgroundSize = 'cover';
   heart.play();
+  gameStage = 6;
 });
 
 document.addEventListener('click', (event) => {
   const targetId = event.target.id;
-
+  console.log(gameStage)
   if (targetId === 'about-button') {
     handleAboutButtonClick();
+    gameStage = 4;
   } else if (targetId === 'about-button-2') {
     handleAboutButtonTwoClick();
+    gameStage = 5;
   } else if (targetId === 'full-screen') {
     handleFullScreenClick();
+    gameStage = 2;
   } else if (targetId === 'second-intro-continue') {
     handleSecondIntroContinueClick();
+    gameStage = 3;
   }
 });
 
@@ -59,6 +67,7 @@ const handleAboutButtonTwoClick = () => {
   aboutButtonTwo.style.paddingTop = '50px';
   aboutButtonTwo.style.textShadow = '0px 0px 10px red';
   document.body.style.backgroundImage = 'url(./backgrounds/background1.5.png)';
+  gitHubLogo.remove();
   header.style.transform = 'rotate(180deg)';
   header.style.color = 'rgb(255, 255, 255)';
   breath.play();
@@ -69,6 +78,7 @@ const handleFullScreenClick = () => {
   secondIntroWrapper.hidden = false;
   secondIntroWrapper.classList.add('fade-in');
   document.body.style.backgroundImage = 'url(./backgrounds/background.png)';
+  theme.play();
 };
 
 const handleSecondIntroContinueClick = () => {
@@ -77,5 +87,4 @@ const handleSecondIntroContinueClick = () => {
   app.classList.add('fade-in');
   document.body.classList.add('fade-in');
   document.body.style.backgroundColor = 'transparent';
-  theme.play();
 };
