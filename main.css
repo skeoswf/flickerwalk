@@ -191,3 +191,10 @@ body {
   border-bottom: 10px solid rgb(248, 0, 11, 0.2);
   border-right: 10px solid rgb(248, 0, 11, 0.2);
 }
+
+#github-logo {
+  width: 50px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
