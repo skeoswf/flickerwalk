@@ -3,6 +3,7 @@ const startButton = document.getElementById('big-ass-start-button');
 const app = document.getElementById('app');
 const header = document.getElementById('header-text');
 const aboutButton = document.getElementById('about-button');
+let aboutButtonTwo = null; // we have to set it as a null here because it doesnt exist yet
 const fullScreen = document.getElementById('full-screen');
 const secondIntroWrapper = document.getElementById('second-intro-wrapper');
 const secondIntroContinue = document.getElementById('second-intro-continue');
@@ -46,6 +47,8 @@ const handleAboutButtonClick = () => {
   aboutButton.style.border = 'none';
   aboutButton.setAttribute('id', 'about-button-2');
   aboutButton.style.fontFamily = 'serif';
+
+  aboutButtonTwo = document.getElementById('about-button-2');
 };
 
 const handleAboutButtonTwoClick = () => {
