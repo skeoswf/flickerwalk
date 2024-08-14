@@ -1,4 +1,4 @@
-// Element References
+// elements
 const startButton = document.getElementById('big-ass-start-button');
 const app = document.getElementById('app');
 const header = document.getElementById('header-text');
@@ -7,25 +7,24 @@ let aboutButtonTwo = null; // we have to set it as a null here because it doesnt
 const fullScreen = document.getElementById('full-screen');
 const secondIntroWrapper = document.getElementById('second-intro-wrapper');
 const secondIntroContinue = document.getElementById('second-intro-continue');
-const gitHubLogo = document.getElementById('github-logo');
 
+// images 
+const gitHubLogo = document.getElementById('github-logo');
+const saveCat = document.getElementById('save-cat');
+
+// themes
 const theme = new Audio('./songs/cherryost.mp3');
+const themeDistorted = new Audio('./songs/cherryost_distorted.mp3')
+
+// sounds
 const breath = new Audio('./sounds/breathe-slow.mp3');
-breath.volume = 0.2;
 const heart = new Audio('./sounds/heartbeat.mp3');
+const saveMeow = new Audio('./sounds/savemeow.mp3');
+
+breath.volume = 0.2;
+saveMeow.volume = 0.1;
 
 let gameStage = 1;
-
-startButton.addEventListener('click', () => {
-  header.remove();
-  aboutButton.remove();
-  startButton.remove();
-  gitHubLogo.remove();
-  document.body.style.backgroundImage = 'url(./backgrounds/background2.png)';
-  document.body.style.backgroundSize = 'cover';
-  heart.play();
-  gameStage = 6;
-});
 
 document.addEventListener('click', (event) => {
   const targetId = event.target.id;
@@ -42,8 +41,11 @@ document.addEventListener('click', (event) => {
   } else if (targetId === 'second-intro-continue') {
     handleSecondIntroContinueClick();
     gameStage = 3;
+  } else if (targetId === 'big-ass-start-button') {
+    handleStartButtonClick();
   }
 });
+
 
 const handleAboutButtonClick = () => {
   aboutButton.innerHTML = 't̴̢̀ṳ̵̓t̴͍̓o̶̒͜ř̷̪i̴̫̓á̴͕l̴̲̚';
@@ -70,7 +72,12 @@ const handleAboutButtonTwoClick = () => {
   gitHubLogo.remove();
   header.style.transform = 'rotate(180deg)';
   header.style.color = 'rgb(255, 255, 255)';
-  breath.play();
+
+  theme.pause();
+  themeDistorted.play();
+  saveCat.setAttribute('id', 'save-cat-2');
+  saveMeow.volume = 0;
+  saveCat.src = './image-assets/savecat2.png';
 };
 
 const handleFullScreenClick = () => {
@@ -87,4 +94,20 @@ const handleSecondIntroContinueClick = () => {
   app.classList.add('fade-in');
   document.body.classList.add('fade-in');
   document.body.style.backgroundColor = 'transparent';
+
+  saveCat.addEventListener('mouseenter', () => {
+    saveMeow.play();
+  });
 };
+
+const handleStartButtonClick = () => {
+  header.remove();
+  aboutButton.remove();
+  startButton.remove();
+  gitHubLogo.remove();
+  saveCat.remove();
+  document.body.style.backgroundImage = 'url(./backgrounds/background2.png)';
+  document.body.style.backgroundSize = 'cover';
+  heart.play();
+  gameStage = 6;
+}
