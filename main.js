@@ -7,6 +7,7 @@ let aboutButtonTwo = null; // we have to set it as a null here because it doesnt
 const fullScreen = document.getElementById('full-screen');
 const secondIntroWrapper = document.getElementById('second-intro-wrapper');
 const secondIntroContinue = document.getElementById('second-intro-continue');
+const dialogueBox = document.getElementById('dialogue-box');
 
 // images 
 const gitHubLogo = document.getElementById('github-logo');
@@ -25,6 +26,11 @@ breath.volume = 0.2;
 saveMeow.volume = 0.1;
 
 let gameStage = 1;
+let gameTrueStart = false
+
+if (gameStage >= 6) {
+  gameTrueStart = true
+}
 
 document.addEventListener('click', (event) => {
   const targetId = event.target.id;
@@ -108,6 +114,10 @@ const handleStartButtonClick = () => {
   saveCat.remove();
   document.body.style.backgroundImage = 'url(./backgrounds/background2.png)';
   document.body.style.backgroundSize = 'cover';
-  heart.play();
+  theme.volume = 0.1;
+  themeDistorted.volume = 0.1;
   gameStage = 6;
+  dialogueBox.hidden = false;
+  gameTrueStart = gameStage >= 6; // gameTrueStart needs to be rechecked and reassigned after gameStage is updated by player interaction.
+  console.log(gameTrueStart)
 }
