@@ -7,7 +7,11 @@ let aboutButtonTwo = null; // we have to set it as a null here because it doesnt
 const fullScreen = document.getElementById('full-screen');
 const secondIntroWrapper = document.getElementById('second-intro-wrapper');
 const secondIntroContinue = document.getElementById('second-intro-continue');
-const dialogueBox = document.getElementById('dialogue-box');
+
+// dialogue elements
+const dialogueBoxHim = document.getElementById('dialogue-box-him');
+const dialogueBoxHer = document.getElementById('dialogue-box-her');
+const dialogueBoxOurs = document.getElementById('dialogue-box-ours');
 
 // images 
 const gitHubLogo = document.getElementById('github-logo');
@@ -22,19 +26,22 @@ const breath = new Audio('./sounds/breathe-slow.mp3');
 const heart = new Audio('./sounds/heartbeat.mp3');
 const saveMeow = new Audio('./sounds/savemeow.mp3');
 
+// dialogue sounds
+const mainRoomDialogueOne = new Audio('./dialogue-sounds/main-room-1.mp3');
+
 breath.volume = 0.2;
 saveMeow.volume = 0.1;
 
 let gameStage = 1;
 let gameTrueStart = false
 
-if (gameStage >= 6) {
-  gameTrueStart = true
-}
+const updateGameState = () => {
+  gameTrueStart = gameStage >= 6;
+};
 
 document.addEventListener('click', (event) => {
   const targetId = event.target.id;
-  console.log(gameStage)
+  console.log(`current gameStage value: ${gameStage}`)
   if (targetId === 'about-button') {
     handleAboutButtonClick();
     gameStage = 4;
@@ -117,7 +124,51 @@ const handleStartButtonClick = () => {
   theme.volume = 0.1;
   themeDistorted.volume = 0.1;
   gameStage = 6;
-  dialogueBox.hidden = false;
-  gameTrueStart = gameStage >= 6; // gameTrueStart needs to be rechecked and reassigned after gameStage is updated by player interaction.
-  console.log(gameTrueStart)
+
+  updateGameState();
+  mainRoom();
+}
+
+const dialogueControl = (id, text) => {
+
+  if (dialogueBoxHim) {
+    dialogueBoxHim.setAttribute('id', id);
+    dialogueBoxHim.innerHTML = text;
+  } else if (dialogueBoxHer) {
+    dialogueBoxHer.setAttribute('id', id);
+    dialogueBoxHer.innerHTML = text;
+  } else if (dialogueBoxOurs) {
+    dialogueBoxOurs.setAttribute('id', id);
+    dialogueBoxOurs.innerHTML = text;
+  }
+}
+
+const mainRoom = () => {
+  let mainValue = 0;
+
+  document.addEventListener('click', (event) => {
+
+    if (event.target && gameStage === 6) {
+
+      mainValue++
+      console.log(`current mainValue: ${mainValue}`)
+
+      switch (mainValue) {
+        case 1:
+          dialogueBoxHim.hidden = false;
+          dialogueControl('dialogue-box-him', 'i cant be here');
+          break;
+        case 2:
+          dialogueControl('dialogue-box-him', 'i have to leave--  i need to get out of here. now.');
+          mainRoomDialogueOne.play();
+          break;
+        case 3:
+          dialogueBoxHim.hidden = true;
+          gameStage = 7;
+          updateGameState();
+          break;
+      }
+
+    }
+  })
 }
