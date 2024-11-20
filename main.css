@@ -192,7 +192,9 @@ body {
   cursor: pointer;
 }
 
-#dialogue-box {
+#dialogue-box-him,
+#dialogue-box-her,
+#dialogue-box-ours {
   background: rgba(0, 0, 0, 0.493);
   height: 30px;
   line-height: 30px;
@@ -204,4 +206,19 @@ body {
   font-size: 20px;
   padding: 7px 20px;
   transform: translateX(50%);
+}
+
+#dialogue-box-him {
+  background: rgba(0, 0, 0, 0.493);
+  color: white;
+}
+
+#dialogue-box-her {
+  background: rgba(0, 0, 0, 0.493);
+  color: rgb(255, 255, 0);
+}
+
+#dialogue-box-ours {
+  background: rgba(0, 0, 0, 0.493);
+  color: (255, 192, 203);
 }
