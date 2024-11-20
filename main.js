@@ -27,6 +27,12 @@ const heart = new Audio('./sounds/heartbeat.mp3');
 const saveMeow = new Audio('./sounds/savemeow.mp3');
 
 // dialogue sounds
+const dialogueClickOne = new Audio('./dialogue-sounds/dialogue-random-1.mp3');
+const dialogueClickTwo = new Audio('./dialogue-sounds/dialogue-random-2.mp3');
+const dialogueClickThree = new Audio('./dialogue-sounds/dialogue-random-3.mp3');
+const dialogueClickFour = new Audio('./dialogue-sounds/dialogue-random-4.mp3');
+const dialogueClickFive = new Audio('./dialogue-sounds/dialogue-random-5.mp3');
+
 const mainRoomDialogueOne = new Audio('./dialogue-sounds/main-room-1.mp3');
 
 breath.volume = 0.2;
@@ -38,6 +44,43 @@ let gameTrueStart = false
 const updateGameState = () => {
   gameTrueStart = gameStage >= 6;
 };
+
+const randomDialogueClick = () => {
+  let randomValueOneToFive = (Math.floor(Math.random() * 5) + 1)
+  switch (randomValueOneToFive) {
+    case 1:
+      dialogueClickOne.play();
+      break;
+    case 2:
+      dialogueClickTwo.play();
+      break;
+    case 3:
+      dialogueClickThree.play();
+      break;
+    case 4:
+      dialogueClickFour.play();
+      break;
+    case 5:
+      dialogueClickFive.play();
+      break;
+  }
+}
+
+const dialogueControl = (id, text) => {
+  randomDialogueClick();
+
+
+  if (dialogueBoxHim) {
+    dialogueBoxHim.setAttribute('id', id);
+    dialogueBoxHim.innerHTML = text;
+  } else if (dialogueBoxHer) {
+    dialogueBoxHer.setAttribute('id', id);
+    dialogueBoxHer.innerHTML = text;
+  } else if (dialogueBoxOurs) {
+    dialogueBoxOurs.setAttribute('id', id);
+    dialogueBoxOurs.innerHTML = text;
+  }
+}
 
 document.addEventListener('click', (event) => {
   const targetId = event.target.id;
@@ -121,26 +164,12 @@ const handleStartButtonClick = () => {
   saveCat.remove();
   document.body.style.backgroundImage = 'url(./backgrounds/background2.png)';
   document.body.style.backgroundSize = 'cover';
-  theme.volume = 0.1;
-  themeDistorted.volume = 0.1;
+  theme.volume = 0.2;
+  themeDistorted.volume = 0.2;
   gameStage = 6;
 
   updateGameState();
   mainRoom();
-}
-
-const dialogueControl = (id, text) => {
-
-  if (dialogueBoxHim) {
-    dialogueBoxHim.setAttribute('id', id);
-    dialogueBoxHim.innerHTML = text;
-  } else if (dialogueBoxHer) {
-    dialogueBoxHer.setAttribute('id', id);
-    dialogueBoxHer.innerHTML = text;
-  } else if (dialogueBoxOurs) {
-    dialogueBoxOurs.setAttribute('id', id);
-    dialogueBoxOurs.innerHTML = text;
-  }
 }
 
 const mainRoom = () => {
@@ -163,6 +192,7 @@ const mainRoom = () => {
           mainRoomDialogueOne.play();
           break;
         case 3:
+          randomDialogueClick();
           dialogueBoxHim.hidden = true;
           gameStage = 7;
           updateGameState();
