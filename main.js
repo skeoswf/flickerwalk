@@ -13,6 +13,9 @@ const dialogueBoxHim = document.getElementById('dialogue-box-him');
 const dialogueBoxHer = document.getElementById('dialogue-box-her');
 const dialogueBoxOurs = document.getElementById('dialogue-box-ours');
 
+//navigation elements 
+const roomNavigationContainer = document.getElementById('room-navigation');
+
 // images 
 const gitHubLogo = document.getElementById('github-logo');
 const saveCat = document.getElementById('save-cat');
@@ -195,10 +198,11 @@ const mainRoom = () => {
           randomDialogueClick();
           dialogueBoxHim.hidden = true;
           gameStage = 7;
+          roomNavigationContainer.hidden = false;
           updateGameState();
           break;
       }
-
+      //test
     }
   })
 }

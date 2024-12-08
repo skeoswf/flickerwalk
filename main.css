@@ -95,6 +95,7 @@ body {
   border-bottom: 2px solid rgba(248, 0, 11, 0.2);
   border-right: 2px solid rgba(248, 0, 11, 0.2);
   border-radius: 40px;
+  min-width: 240px;
 }
 
 #about-button:hover,
@@ -127,7 +128,7 @@ body {
   color: rgb(252, 222, 237);
   line-height: 30px;
   height: 80px;
-  margin-top: 70vh;
+  margin-top: 85vh;
   padding-top: 25px;
   font-size: 50px;
 }
@@ -153,12 +154,17 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font: 180px 'Pixelify Sans', sans-serif;
+  font: 140px 'Pixelify Sans', sans-serif;
   color: rgb(150, 0, 0);
   width: 40vw;
   text-align: center;
   text-shadow: 10px 10px 3px rgb(255, 255, 255);
   animation: float 1s infinite alternate;
+}
+
+#full-screen {
+  height: 25vh;
+  font-size: 600%;
 }
 
 #second-intro {
@@ -171,6 +177,7 @@ body {
   border-radius: 40px;
   border-bottom: 10px solid rgba(248, 0, 11, 0.2);
   border-right: 10px solid rgba(248, 0, 11, 0.2);
+  min-width: 505px;
 }
 
 #github-logo {
@@ -208,6 +215,14 @@ body {
   transform: translateX(50%);
 }
 
+#room-navigation {
+  position: absolute;
+  border: 5px dotted red;
+  height: 98%;
+  width: 98%;
+  margin-left: 0.3vw;
+}
+
 #dialogue-box-him {
   background: rgba(0, 0, 0, 0.493);
   color: white;
@@ -221,4 +236,5 @@ body {
 #dialogue-box-ours {
   background: rgba(0, 0, 0, 0.493);
   color: (255, 192, 203);
+  box-sizing: border-box;
 }
