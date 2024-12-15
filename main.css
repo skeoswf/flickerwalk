@@ -215,14 +215,6 @@ body {
   transform: translateX(50%);
 }
 
-#room-navigation {
-  position: absolute;
-  border: 5px dotted red;
-  height: 98%;
-  width: 98%;
-  margin-left: 0.3vw;
-}
-
 #dialogue-box-him {
   background: rgba(0, 0, 0, 0.493);
   color: white;
@@ -237,4 +229,48 @@ body {
   background: rgba(0, 0, 0, 0.493);
   color: (255, 192, 203);
   box-sizing: border-box;
+}
+
+#room-navigation {
+  position: absolute;
+  height: 98%;
+  width: 98%;
+  margin-left: 0.3vw;
+}
+
+#closet-navigation,
+#stairs-navigation,
+#kitchen-navigation {
+  position: absolute;
+  border: 5px dotted rgba(255, 0, 0, 0.486);
+  box-sizing: border-box;
+}
+
+#closet-navigation:hover,
+#stairs-navigation:hover,
+#kitchen-navigation:hover {
+  border: 5px solid transparent;
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.178);
+}
+
+#closet-navigation {
+  height: 48vh;
+  width: 8.2vw;
+  margin-top: 36vh;
+  margin-left: -24px;
+}
+
+#stairs-navigation {
+  height: 40vh;
+  width: 14vw;
+  margin-top: 10vh;
+  margin-left: 40vw;
+}
+
+#kitchen-navigation {
+  height: 79vh;
+  width: 24vw;
+  margin-top: 15.5vh;
+  margin-left: 66vw;
 }
