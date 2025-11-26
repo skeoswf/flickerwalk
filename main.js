@@ -165,8 +165,7 @@ const handleStartButtonClick = () => {
   startButton.remove();
   gitHubLogo.remove();
   saveCat.remove();
-  document.body.style.backgroundImage = 'url(./backgrounds/background2.png)';
-  document.body.style.backgroundSize = 'cover';
+  document.body.style.background = 'url(./backgrounds/background2.png) center / cover no-repeat fixed';
   theme.volume = 0.2;
   themeDistorted.volume = 0.2;
   gameStage = 6;

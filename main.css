@@ -1,7 +1,13 @@
+html,
+body {
+  min-width: 1300px;
+}
+
 body {
   background-color: pink;
   user-select: none;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 /* Animations */
@@ -59,6 +65,10 @@ body {
 
 .fade-in {
   animation: fadeIn 1s;
+}
+
+#app {
+  min-width: 1270px;
 }
 
 #header-text {
@@ -131,6 +141,10 @@ body {
   margin-top: 85vh;
   padding-top: 25px;
   font-size: 50px;
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #about-button-2 {
@@ -160,11 +174,20 @@ body {
   text-align: center;
   text-shadow: 10px 10px 3px rgb(255, 255, 255);
   animation: float 1s infinite alternate;
+  min-height: 560px;
+  min-width: 315px;
+}
+
+#second-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #full-screen {
   height: 25vh;
-  font-size: 600%;
+  min-height: 250px;
+  font-size: 500%;
 }
 
 #second-intro {
@@ -232,10 +255,12 @@ body {
 }
 
 #room-navigation {
+
   position: absolute;
   height: 98%;
-  width: 98%;
+  min-width: 1300px;
   margin-left: 0.3vw;
+
 }
 
 #closet-navigation,
@@ -255,22 +280,25 @@ body {
 }
 
 #closet-navigation {
-  height: 48vh;
-  width: 8.2vw;
-  margin-top: 36vh;
+  height: 52%;
+  width: 16%;
+  margin-top: 230px;
   margin-left: -24px;
+  min-height: 500px;
 }
 
 #stairs-navigation {
-  height: 40vh;
-  width: 14vw;
-  margin-top: 10vh;
-  margin-left: 40vw;
+  height: 45%;
+  width: 25%;
+  margin-top: 28px;
+  margin-left: 41vw;
+  max-width: 320px;
+  min-height: 520px;
 }
 
 #kitchen-navigation {
-  height: 79vh;
-  width: 24vw;
-  margin-top: 15.5vh;
-  margin-left: 66vw;
+  height: 70%;
+  width: 30%;
+  margin-top: 150px;
+  margin-left: 70vw;
 }
