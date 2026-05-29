@@ -36,6 +36,26 @@ const dialogueClickThree = new Audio('./dialogue-sounds/dialogue-random-3.mp3');
 const dialogueClickFour = new Audio('./dialogue-sounds/dialogue-random-4.mp3');
 const dialogueClickFive = new Audio('./dialogue-sounds/dialogue-random-5.mp3');
 
+// shuffle navigation sounds
+const navigationClickOne = new Audio('./shufflesounds/shuffle1-raw1.mp3');
+const navigationClickTwo = new Audio('./shufflesounds/shuffle1-raw2.mp3');
+const navigationClickThree = new Audio('./shufflesounds/shuffle2-raw.mp3');
+const navigationClickFour = new Audio('./shufflesounds/shuffle3-raw.mp3');
+
+// transitional black screen element
+const blackScreen = document.getElementById('black-screen');
+
+// general pathway behavior
+const pathways = document.querySelectorAll('.pathway');
+pathways.forEach(pathway => {
+  pathway.addEventListener('click', () => {
+    randomNavigationShuffle();
+  });
+});
+
+// how to turn the page black after clicking a pathway?
+
+
 const mainRoomDialogueOne = new Audio('./dialogue-sounds/main-room-1.mp3');
 
 breath.volume = 0.2;
@@ -65,6 +85,24 @@ const randomDialogueClick = () => {
       break;
     case 5:
       dialogueClickFive.play();
+      break;
+  }
+}
+
+const randomNavigationShuffle = () => {
+  let randomValueOneToFour = (Math.floor(Math.random() * 4) + 1)
+  switch (randomValueOneToFour) {
+    case 1:
+      navigationClickOne.play();
+      break;
+    case 2:
+      navigationClickTwo.play();
+      break;
+    case 3:
+      navigationClickThree.play();
+      break;
+    case 4:
+      navigationClickFour.play();
       break;
   }
 }
@@ -199,6 +237,7 @@ const mainRoom = () => {
           gameStage = 7;
           roomNavigationContainer.hidden = false;
           updateGameState();
+          theme.pause();
           break;
       }
       //test

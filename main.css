@@ -71,6 +71,17 @@ body {
   min-width: 1270px;
 }
 
+#black-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9999;
+  opacity: 0;
+}
+
 #header-text {
   font: 10em 'Pixelify Sans', sans-serif;
   color: rgb(231, 0, 0);
