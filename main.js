@@ -203,10 +203,12 @@ const handleStartButtonClick = () => {
   startButton.remove();
   gitHubLogo.remove();
   saveCat.remove();
-  document.body.style.background = 'url(./backgrounds/background2.png) center / cover no-repeat fixed';
-  theme.volume = 0.2;
-  themeDistorted.volume = 0.2;
+  theme.volume = 0.0;
+  themeDistorted.volume = 0.0;
   gameStage = 6;
+
+  blackScreen.hidden = false;
+  blackScreen.classList.add('fade-in');
 
   updateGameState();
   mainRoom();
@@ -222,24 +224,24 @@ const mainRoom = () => {
       mainValue++
       console.log(`current mainValue: ${mainValue}`)
 
-      switch (mainValue) {
-        case 1:
-          dialogueBoxHim.hidden = false;
-          dialogueControl('dialogue-box-him', 'i cant be here');
-          break;
-        case 2:
-          dialogueControl('dialogue-box-him', 'i have to leave--  i need to get out of here. now.');
-          mainRoomDialogueOne.play();
-          break;
-        case 3:
-          randomDialogueClick();
-          dialogueBoxHim.hidden = true;
-          gameStage = 7;
-          roomNavigationContainer.hidden = false;
-          updateGameState();
-          theme.pause();
-          break;
-      }
+      // switch (mainValue) {
+      //   case 1:
+      //     dialogueBoxHim.hidden = false;
+      //     dialogueControl('dialogue-box-him', 'i cant be here');
+      //     break;
+      //   case 2:
+      //     dialogueControl('dialogue-box-him', 'i have to leave--  i need to get out of here. now.');
+      //     mainRoomDialogueOne.play();
+      //     break;
+      //   case 3:
+      //     randomDialogueClick();
+      //     dialogueBoxHim.hidden = true;
+      //     gameStage = 7;
+      //     roomNavigationContainer.hidden = false;
+      //     updateGameState();
+      //     theme.pause();
+      //     break;
+      // }
       //test
     }
   })
