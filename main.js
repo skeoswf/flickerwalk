@@ -30,6 +30,7 @@ altCat2.src = './image-assets/altcat2.png';
 
 const gateIntro = document.createElement('video');
 gateIntro.src = './video-assets/intro.mp4';
+gateIntro.classList.add('gate-intro-video');
 
 
 // themes
@@ -221,6 +222,11 @@ const handleStartButtonClick = () => {
 
   blackScreen.hidden = false;
   blackScreen.classList.add('fade-in');
+
+  setTimeout(() => {
+    blackScreen.appendChild(gateIntro);
+    gateIntro.play();
+  }, 3000);
 
   updateGameState();
   mainRoom();
