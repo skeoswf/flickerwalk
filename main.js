@@ -58,6 +58,11 @@ const navigationClickFour = new Audio('./shufflesounds/shuffle3-raw.mp3');
 // transitional black screen element
 const blackScreen = document.getElementById('black-screen');
 
+// play save meow sound
+const playSaveMeow = () => {
+  saveMeow.play();
+};
+
 // general pathway behavior
 const pathways = document.querySelectorAll('.pathway');
 pathways.forEach(pathway => {
@@ -65,9 +70,6 @@ pathways.forEach(pathway => {
     randomNavigationShuffle();
   });
 });
-
-// how to turn the page black after clicking a pathway?
-
 
 const mainRoomDialogueOne = new Audio('./dialogue-sounds/main-room-1.mp3');
 
@@ -205,9 +207,7 @@ const handleSecondIntroContinueClick = () => {
   document.body.classList.add('fade-in');
   document.body.style.backgroundColor = 'transparent';
 
-  saveCat.addEventListener('mouseenter', () => {
-    saveMeow.play();
-  });
+  saveCat.addEventListener('mouseenter', playSaveMeow);
 };
 
 const handleStartButtonClick = () => {
@@ -216,7 +216,7 @@ const handleStartButtonClick = () => {
   startButton.remove();
   gitHubLogo.remove();
   saveCat.remove();
-  theme.volume = 0.0;
+  theme.pause();
   themeDistorted.volume = 0.0;
   gameStage = 6;
 
@@ -228,39 +228,40 @@ const handleStartButtonClick = () => {
     gateIntro.play();
   }, 3000);
 
+  gateIntro.addEventListener('ended', () => {
+    gateIntro.remove();
+    breath.volume = 0.01;
+    breath.play();
+    blackScreen.classList.remove('fade-in');
+    blackScreen.hidden = true;
+    gameStage = 7;
+
+    theme.play();
+  }, { once: true });
+
   updateGameState();
-  mainRoom();
+  trueStartScreen();
 }
 
-const mainRoom = () => {
+const trueStartScreen = () => {
   let mainValue = 0;
 
   document.addEventListener('click', (event) => {
 
-    if (event.target && gameStage === 6) {
+    console.log(`current mainValue value: ${mainValue}`)
 
-      mainValue++
-      console.log(`current mainValue: ${mainValue}`)
 
-      // switch (mainValue) {
-      //   case 1:
-      //     dialogueBoxHim.hidden = false;
-      //     dialogueControl('dialogue-box-him', 'i cant be here');
-      //     break;
-      //   case 2:
-      //     dialogueControl('dialogue-box-him', 'i have to leave--  i need to get out of here. now.');
-      //     mainRoomDialogueOne.play();
-      //     break;
-      //   case 3:
-      //     randomDialogueClick();
-      //     dialogueBoxHim.hidden = true;
-      //     gameStage = 7;
-      //     roomNavigationContainer.hidden = false;
-      //     updateGameState();
-      //     theme.pause();
-      //     break;
-      // }
-      //test
+    if (gameStage === 7) {
+      gameStage = 8;
+      mainValue++;
+
+      theme.pause();
+
+      document.body.style.backgroundColor = 'black';
+      document.body.appendChild(saveCat);
+      saveCat.removeEventListener('mouseenter', playSaveMeow);
+      saveCat.src = './image-assets/altcat2.png';
     }
-  })
+  });
+
 }
