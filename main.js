@@ -20,6 +20,18 @@ const roomNavigationContainer = document.getElementById('room-navigation');
 const gitHubLogo = document.getElementById('github-logo');
 const saveCat = document.getElementById('save-cat');
 
+const altCat1 = document.createElement('img');
+const altCat2 = document.createElement('img');
+
+altCat1.src = './image-assets/altcat1.png';
+altCat2.src = './image-assets/altcat2.png';
+
+// videos
+
+const gateIntro = document.createElement('video');
+gateIntro.src = './video-assets/intro.mp4';
+
+
 // themes
 const theme = new Audio('./songs/cherryost.mp3');
 const themeDistorted = new Audio('./songs/cherryost_distorted.mp3')

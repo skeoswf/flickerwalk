@@ -81,6 +81,13 @@ body {
   z-index: 9999;
 }
 
+.gate-intro-video {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  pointer-events: none;
+}
+
 #header-text {
   font: 10em 'Pixelify Sans', sans-serif;
   color: rgb(231, 0, 0);
@@ -262,53 +269,4 @@ body {
   background: rgba(0, 0, 0, 0.493);
   color: (255, 192, 203);
   box-sizing: border-box;
-}
-
-#room-navigation {
-
-  position: absolute;
-  height: 98%;
-  min-width: 1300px;
-  margin-left: 0.3vw;
-
-}
-
-#closet-navigation,
-#stairs-navigation,
-#kitchen-navigation {
-  position: absolute;
-  border: 5px dotted rgba(255, 0, 0, 0.486);
-  box-sizing: border-box;
-}
-
-#closet-navigation:hover,
-#stairs-navigation:hover,
-#kitchen-navigation:hover {
-  border: 5px solid transparent;
-  cursor: pointer;
-  background-color: rgba(255, 0, 0, 0.178);
-}
-
-#closet-navigation {
-  height: 52%;
-  width: 16%;
-  margin-top: 230px;
-  margin-left: -24px;
-  min-height: 500px;
-}
-
-#stairs-navigation {
-  height: 45%;
-  width: 25%;
-  margin-top: 28px;
-  margin-left: 41vw;
-  max-width: 320px;
-  min-height: 520px;
-}
-
-#kitchen-navigation {
-  height: 70%;
-  width: 30%;
-  margin-top: 150px;
-  margin-left: 70vw;
 }
